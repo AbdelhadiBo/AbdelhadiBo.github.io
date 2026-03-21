@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-"homepage": "https://AbdelhadiBouzani.github.io/Portfolio-master",
+"homepage": "https://AbdelhadiBo.github.io",
   "private": true,
   "dependencies": {
     "@react-pdf/renderer": "^2.2.0",
