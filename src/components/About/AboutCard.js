@@ -22,7 +22,14 @@ function AboutCard() {
             <li className="about-activity">
               <ImPointRight /> Traveling and Exploring New Places 🌍
             </li>
+            
+            <li className="about-activity">
+              🏋️ Sports & Fitness
+            </li>
+            
           </ul>
+        
+            
 
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
