@@ -70,6 +70,16 @@ function Projects() {
             />
           </Col>
 
+                    <Col md={4} className="project-card">
+            <ProjectCard
+              isBlog={false}
+              title="Clinique Management System"
+              description="A simple management system for a clinic, built with modern web technologies."
+              ghLink="https://github.com/AbdelhadiBo/clinic-management-system"
+            />
+          </Col>
+
+
         </Row>
       </Container>
     </Container>

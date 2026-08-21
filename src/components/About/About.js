@@ -42,10 +42,7 @@ function About() {
 
           <Techstack />
 
-          <h1 className="project-heading">
-            <strong className="purple">Tools</strong> I use
-          </h1>
-          <Toolstack />
+   
 
           <Github />
         </Container>
