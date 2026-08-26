@@ -1,12 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.807d07d8.css",
-    "main.js": "/static/js/main.4a94267f.js",
+    "main.js": "/static/js/main.50a258c2.js",
     "static/js/453.612f53fa.chunk.js": "/static/js/453.612f53fa.chunk.js",
     "static/media/AbdelhadiBouzani.png": "/static/media/AbdelhadiBouzani.51a4f1372302dc856c29.png",
     "static/media/home-main.svg": "/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg",
     "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
-    "static/media/logo.png": "/static/media/logo.8a7c42aff89be4494f63.png",
     "static/media/go.svg": "/static/media/go.9a9bf59ea453fc0e3ec82471b0c300ab.svg",
     "static/media/SQL.svg": "/static/media/SQL.7fd9bdcee9744b3b731709f2753c68af.svg",
     "static/media/Mongo.svg": "/static/media/Mongo.2c5a056ee9abf56973ee685904548bb8.svg",
@@ -36,11 +35,11 @@
     "static/media/Haskell.svg": "/static/media/Haskell.084122e02bec646ad186861642137932.svg",
     "static/media/Firebase.svg": "/static/media/Firebase.de3da3a4068963dd30fc0f885f170428.svg",
     "main.807d07d8.css.map": "/static/css/main.807d07d8.css.map",
-    "main.4a94267f.js.map": "/static/js/main.4a94267f.js.map",
+    "main.50a258c2.js.map": "/static/js/main.50a258c2.js.map",
     "453.612f53fa.chunk.js.map": "/static/js/453.612f53fa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.807d07d8.css",
-    "static/js/main.4a94267f.js"
+    "static/js/main.50a258c2.js"
   ]
 }
