@@ -1,11 +1,49 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { ImPointRight } from "react-icons/im";
-import { MdWorkOutline, MdLocationOn, MdCalendarToday } from "react-icons/md";
+import { MdWorkOutline, MdLocationOn, MdCalendarToday, MdSchool } from "react-icons/md";
 import { FaLaravel } from "react-icons/fa";
 import { SiFlutter, SiDart, SiMysql, SiTailwindcss, SiSqlite } from "react-icons/si";
 
 function AboutCard() {
+  const etudes = [
+    {
+      id: 1,
+      title: "4ème année — Cycle Ingénieur en Génie Informatique",
+      school: "Ecole Nouvelle des Sciences de l'Informatique (ENSI Tanger)",
+      duration: "En cours",
+      location: "Tanger, Maroc",
+      description:
+        "Formation d'ingénieur en génie informatique, avec un focus sur l'architecture logicielle, le développement full-stack et les bonnes pratiques d'ingénierie.",
+    },
+    {
+      id: 2,
+      title: "3ème année DCA — Génie Informatique",
+      school: "ENSA Tanger",
+      duration: "2024 – 2025",
+      location: "Tanger, Maroc",
+      description:
+        "DCA (Diplôme de Cycle d'Approfondissement) en Génie Informatique, avec un tronc commun scientifique solide en mathématiques, algorithmique et informatique.",
+    },
+    {
+      id: 3,
+      title: "Développement Digital — Option Web Full Stack",
+      school: "ISTAG-Meknes",
+      duration: "2022 – 2024",
+      location: "Bab Tizimi, Meknes",
+      description:
+        "Diplôme de technicien spécialisé en développement digital, axé sur le développement web full stack, les bases de données et les fondamentaux de la programmation.",
+    },
+    {
+      id: 4,
+      title: "Baccalauréat — Sciences Physiques",
+      school: "Lycée Almontalak - Meknes",
+      duration: "2019 – 2020",
+      location: "Meknes, Maroc",
+      description:
+        "Baccalauréat scientifique avec spécialisation en sciences physiques, base solide en mathématiques et sciences.",
+    },
+  ];
+
   const experiences = [
     {
       id: 1,
@@ -64,194 +102,117 @@ function AboutCard() {
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p style={{ textAlign: "justify" }}>
-            Hello! I’m <span className="purple">Abdelhadi Bouzani</span> from <span className="purple">Morocco</span>.<br />
-            I’m currently pursuing a degree in <span className="purple">Software Engineering</span> at <span className="purple">ENSIT</span> after completing a <span className="purple">DCA (Diploma of University Studies)</span> for one year at <span className="purple">ENSA Tanger</span>.<br /><br />
-            I hold a diploma as a <span className="purple">Specialized Technician in Digital Development</span> and have gained practical experience through academic projects and professional internships, where I contributed to real-world software solutions.<br /><br />
-            Passionate about technology, I continuously enhance my skills, explore new tools and frameworks, and enjoy staying at the forefront of software development trends. Outside of coding, I like going to the gym and tackling new challenges that help me grow professionally and personally.
-          </p>
+          {/* ===== INTRO ===== */}
+          <div className="intro-panel">
+         <p style={{ textAlign: "justify", marginBottom: 0 }}> Hello! I’m <span className="purple">Abdelhadi Bouzani</span> from{" "} <span className="purple">Morocco</span>.<br /><br />
 
-          <h2
-            style={{
-              marginTop: "40px",
-              marginBottom: "30px",
-              color: "#c084f5",
-              fontWeight: "bold",
-              fontSize: "2rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <MdWorkOutline /> Professional Experience
-          </h2>
+            I’m a passionate <span className="purple">Software Developer</span> who enjoys
+            building modern, practical, and user-friendly digital solutions. I have a strong
+            interest in <span className="purple">web and application development</span>,
+            constantly exploring new technologies, tools, and frameworks to improve my skills
+            and create better solutions.<br /><br />
 
-          <div style={{ position: "relative" }}>
-            <div
-              style={{
-                position: "absolute",
-                left: "20px",
-                top: "0",
-                bottom: "0",
-                width: "2px",
-                background: "linear-gradient(180deg, #c084f5, #623686)",
-                borderRadius: "2px",
-              }}
-            />
+            I enjoy turning ideas into functional projects, solving technical problems, and
+            learning through real-world challenges. I’m always looking for opportunities to
+            grow, experiment with new technologies, and stay up to date with the latest trends
+            in software development.<br /><br />
 
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
-                style={{
-                  position: "relative",
-                  paddingLeft: "55px",
-                  marginBottom: index === experiences.length - 1 ? "0" : "40px",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "11px",
-                    top: "8px",
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    background: "#c084f5",
-                    border: "4px solid #1a1a2e",
-                    boxShadow: "0 0 10px rgba(192, 132, 245, 0.5)",
-                    zIndex: 1,
-                  }}
-                />
+            Outside of coding, I enjoy going to the gym, taking on new challenges, and
+            continuously working on both my professional and personal growth.
 
-                <div
-                  style={{
-                    background: "rgba(192, 132, 245, 0.05)",
-                    border: "1px solid rgba(192, 132, 245, 0.2)",
-                    borderRadius: "16px",
-                    padding: "24px",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(192, 132, 245, 0.5)";
-                    e.currentTarget.style.transform = "translateX(5px)";
-                    e.currentTarget.style.boxShadow = "0 8px 32px rgba(192, 132, 245, 0.1)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(192, 132, 245, 0.2)";
-                    e.currentTarget.style.transform = "translateX(0)";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  <div style={{ marginBottom: "12px" }}>
-                    <h4
-                      style={{
-                        color: "#fff",
-                        fontWeight: "bold",
-                        fontSize: "1.25rem",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {exp.role}{" "}
-                      <span style={{ color: "#c084f5", fontWeight: "600" }}>
-                        @ {exp.company}
-                      </span>
+            </p>
+          </div>
+
+          {/* ===== ÉTUDES & PARCOURS ===== */}
+          <div className="section-title">
+            <span className="section-icon edu-icon">
+              <MdSchool />
+            </span>
+            <h2>
+              Études & <span className="purple">Parcours</span>
+            </h2>
+          </div>
+
+          <div className="timeline">
+            {etudes.map((edu, index) => {
+              const current = index === 0;
+              return (
+                <div className="timeline-item" key={edu.id}>
+                  <div
+                    className={`timeline-dot ${current ? "dot-active" : "dot-edu"}`}
+                  />
+                  <div className={`timeline-card ${current ? "current" : ""}`}>
+                    <h4>
+                      {edu.title} <span className="at-school">@ {edu.school}</span>
                     </h4>
 
-                    <div
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: "16px",
-                        fontSize: "0.85rem",
-                        color: "#a0a0a0",
-                        marginTop: "6px",
-                      }}
-                    >
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                        <MdCalendarToday style={{ color: "#c084f5" }} /> {exp.duration}
+                    <div className="meta-row">
+                      <span className="meta-chip">
+                        <MdCalendarToday /> {edu.duration}
                       </span>
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                        <MdLocationOn style={{ color: "#c084f5" }} /> {exp.location}
+                      <span className="meta-chip">
+                        <MdLocationOn /> {edu.location}
                       </span>
-                      <span
-                        style={{
-                          background: "rgba(192, 132, 245, 0.15)",
-                          color: "#c084f5",
-                          padding: "2px 10px",
-                          borderRadius: "12px",
-                          fontSize: "0.75rem",
-                          fontWeight: "600",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.5px",
-                        }}
-                      >
-                        {exp.type}
-                      </span>
+                      {current && <span className="status-badge">En cours</span>}
                     </div>
+
+                    <p className="card-desc">{edu.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* ===== PROFESSIONAL EXPERIENCE ===== */}
+          <div className="section-title">
+            <span className="section-icon edu-icon">
+              <MdWorkOutline />
+            </span>
+            <h2>
+              Professional <span className="purple">Experience</span>
+            </h2>
+          </div>
+
+          <div className="timeline">
+            {experiences.map((exp, index) => (
+              <div
+                className="timeline-item"
+                key={exp.id}
+                style={{
+                  marginBottom: index === experiences.length - 1 ? 0 : undefined,
+                }}
+              >
+                <div className="timeline-dot dot-edu" />
+                <div className="timeline-card">
+                  <h4>
+                    {exp.role} <span className="at-school">@ {exp.company}</span>
+                  </h4>
+
+                  <div className="meta-row">
+                    <span className="meta-chip">
+                      <MdCalendarToday /> {exp.duration}
+                    </span>
+                    <span className="meta-chip">
+                      <MdLocationOn /> {exp.location}
+                    </span>
+                    <span className="type-badge">{exp.type}</span>
                   </div>
 
-                  <p
-                    style={{
-                      textAlign: "justify",
-                      color: "#e0e0e0",
-                      fontSize: "0.95rem",
-                      lineHeight: "1.6",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    {exp.description}
-                  </p>
+                  <p className="card-desc">{exp.description}</p>
 
-                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 16px 0" }}>
+                  <ul className="highlight-list">
                     {exp.highlights.map((item, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          display: "flex",
-                          alignItems: "flex-start",
-                          gap: "10px",
-                          marginBottom: "8px",
-                          fontSize: "0.9rem",
-                          color: "#d0d0d0",
-                          lineHeight: "1.5",
-                        }}
-                      >
-                        <span style={{ color: "#c084f5", fontSize: "1.2rem", lineHeight: "1.2", flexShrink: 0 }}>
-                          ›
-                        </span>
+                      <li key={i}>
+                        <span className="bullet-arrow">›</span>
                         {item}
                       </li>
                     ))}
                   </ul>
 
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
+                  <div className="tech-row">
                     {exp.tech.map((t, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "5px",
-                          background: "rgba(192, 132, 245, 0.1)",
-                          border: "1px solid rgba(192, 132, 245, 0.25)",
-                          color: "#c084f5",
-                          padding: "5px 12px",
-                          borderRadius: "20px",
-                          fontSize: "0.8rem",
-                          fontWeight: "500",
-                          transition: "all 0.2s ease",
-                          cursor: "default",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "rgba(192, 132, 245, 0.25)";
-                          e.currentTarget.style.transform = "translateY(-2px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "rgba(192, 132, 245, 0.1)";
-                          e.currentTarget.style.transform = "translateY(0)";
-                        }}
-                      >
-                        {t.icon && <span style={{ fontSize: "0.9rem" }}>{t.icon}</span>}
+                      <span className="tech-chip" key={i}>
+                        {t.icon && <span className="tech-chip-icon">{t.icon}</span>}
                         {t.name}
                       </span>
                     ))}
@@ -260,9 +221,284 @@ function AboutCard() {
               </div>
             ))}
           </div>
-
         </blockquote>
       </Card.Body>
+
+      <style>{`
+        .quote-card-view {
+          background: transparent;
+          border: none;
+        }
+
+        .intro-panel {
+          background: rgba(192, 132, 245, 0.04);
+          border: 1px solid rgba(192, 132, 245, 0.15);
+          border-radius: 18px;
+          padding: 26px 28px;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-top: 48px;
+          margin-bottom: 28px;
+        }
+
+        .section-title h2 {
+          color: #fff;
+          font-weight: 700;
+          font-size: 1.9rem;
+          margin: 0;
+        }
+
+        .section-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          font-size: 1.4rem;
+          flex-shrink: 0;
+        }
+
+        .edu-icon {
+          color: #c084f5;
+          background: linear-gradient(135deg, rgba(192,132,245,0.18), rgba(98,54,134,0.18));
+          border: 1px solid rgba(192, 132, 245, 0.3);
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+          position: relative;
+          padding-left: 4px;
+        }
+
+        .timeline::before {
+          content: "";
+          position: absolute;
+          left: 20px;
+          top: 6px;
+          bottom: 6px;
+          width: 2px;
+          background: linear-gradient(180deg, #c084f5, rgba(98, 54, 134, 0.2));
+          border-radius: 2px;
+        }
+
+        .timeline-item {
+          position: relative;
+          padding-left: 55px;
+          margin-bottom: 28px;
+        }
+
+        .timeline-item:last-child {
+          margin-bottom: 0;
+        }
+
+        .timeline-dot {
+          position: absolute;
+          left: 11px;
+          top: 22px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 4px solid #14121f;
+          z-index: 1;
+        }
+
+        .dot-edu {
+          background: #c084f5;
+          box-shadow: 0 0 12px rgba(192, 132, 245, 0.55);
+        }
+
+        .dot-active {
+          background: #4ade80;
+          box-shadow: 0 0 14px rgba(74, 222, 128, 0.65);
+        }
+
+        /* ===== CARDS ===== */
+        .timeline-card {
+          position: relative;
+          background: rgba(255, 255, 255, 0.025);
+          border: 1px solid rgba(192, 132, 245, 0.18);
+          border-radius: 16px;
+          padding: 22px 26px;
+          overflow: hidden;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-card::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, #c084f5, #623686);
+        }
+
+        .timeline-card.current {
+          border-color: rgba(74, 222, 128, 0.35);
+        }
+
+        .timeline-card.current::before {
+          background: linear-gradient(180deg, #4ade80, #16a34a);
+        }
+
+        .timeline-card:hover {
+          transform: translateX(6px);
+          border-color: rgba(192, 132, 245, 0.5);
+          box-shadow: 0 10px 30px rgba(192, 132, 245, 0.12);
+        }
+
+        .timeline-card h4 {
+          color: #fff;
+          font-weight: 700;
+          font-size: 1.15rem;
+          margin-bottom: 10px;
+        }
+
+        .at-school {
+          color: #c084f5;
+          font-weight: 600;
+          font-size: 0.95em;
+        }
+
+        .meta-row {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 14px;
+        }
+
+        .meta-chip {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 0.82rem;
+          color: #a0a0a0;
+        }
+
+        .meta-chip svg {
+          color: #c084f5;
+        }
+
+        .status-badge {
+          background: rgba(74, 222, 128, 0.15);
+          color: #4ade80;
+          padding: 3px 12px;
+          border-radius: 20px;
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .type-badge {
+          background: rgba(192, 132, 245, 0.15);
+          color: #c084f5;
+          padding: 3px 12px;
+          border-radius: 20px;
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .card-desc {
+          text-align: justify;
+          color: #d5d5d5;
+          font-size: 0.92rem;
+          line-height: 1.65;
+          margin-bottom: 0;
+        }
+
+        /* ===== HIGHLIGHTS ===== */
+        .highlight-list {
+          list-style: none;
+          padding: 0;
+          margin: 16px 0 18px;
+        }
+
+        .highlight-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          margin-bottom: 8px;
+          font-size: 0.9rem;
+          color: #cfcfcf;
+          line-height: 1.55;
+        }
+
+        .bullet-arrow {
+          color: #c084f5;
+          font-size: 1.2rem;
+          line-height: 1.2;
+          flex-shrink: 0;
+        }
+
+        /* ===== TECH CHIPS ===== */
+        .tech-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 6px;
+        }
+
+        .tech-chip {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(192, 132, 245, 0.08);
+          border: 1px solid rgba(192, 132, 245, 0.25);
+          color: #c084f5;
+          padding: 5px 13px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          transition: all 0.2s ease;
+          cursor: default;
+        }
+
+        .tech-chip:hover {
+          background: rgba(192, 132, 245, 0.2);
+          transform: translateY(-2px);
+        }
+
+        .tech-chip-icon {
+          font-size: 0.9rem;
+          display: flex;
+        }
+
+        @media (max-width: 600px) {
+          .section-title h2 {
+            font-size: 1.5rem;
+          }
+          .section-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.15rem;
+          }
+          .timeline::before {
+            left: 16px;
+          }
+          .timeline-item {
+            padding-left: 44px;
+          }
+          .timeline-dot {
+            left: 7px;
+          }
+          .timeline-card {
+            padding: 18px 18px;
+          }
+          .intro-panel {
+            padding: 20px;
+          }
+        }
+      `}</style>
     </Card>
   );
 }
