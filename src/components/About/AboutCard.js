@@ -1,46 +1,57 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { MdWorkOutline, MdLocationOn, MdCalendarToday, MdSchool } from "react-icons/md";
+import {
+  MdWorkOutline,
+  MdLocationOn,
+  MdCalendarToday,
+  MdSchool,
+} from "react-icons/md";
 import { FaLaravel } from "react-icons/fa";
-import { SiFlutter, SiDart, SiMysql, SiTailwindcss, SiSqlite } from "react-icons/si";
+import {
+  SiFlutter,
+  SiDart,
+  SiMysql,
+  SiTailwindcss,
+  SiSqlite,
+} from "react-icons/si";
 
 function AboutCard() {
-  const etudes = [
+  const studies = [
     {
       id: 1,
-      title: "4ème année — Cycle Ingénieur en Génie Informatique",
-      school: "Ecole Nouvelle des Sciences de l'Informatique (ENSI Tanger)",
-      duration: "En cours",
-      location: "Tanger, Maroc",
+      title: "4th Year — Computer Engineering Program",
+      school: "Ecole Nouvelle des Sciences de l’Informatique (ENSI Tanger)",
+      duration: "In Progress",
+      location: "Tangier, Morocco",
       description:
-        "Formation d'ingénieur en génie informatique, avec un focus sur l'architecture logicielle, le développement full-stack et les bonnes pratiques d'ingénierie.",
+        "Computer engineering program, with a focus on software architecture, full-stack development, and software engineering best practices.",
     },
     {
       id: 2,
-      title: "3ème année DCA — Génie Informatique",
+      title: "3rd Year DCA — Computer Engineering",
       school: "ENSA Tanger",
       duration: "2024 – 2025",
-      location: "Tanger, Maroc",
+      location: "Tangier, Morocco",
       description:
-        "DCA (Diplôme de Cycle d'Approfondissement) en Génie Informatique, avec un tronc commun scientifique solide en mathématiques, algorithmique et informatique.",
+        "DCA (Advanced Studies Diploma) in Computer Engineering, with a strong scientific foundation in mathematics, algorithms, and computer science.",
     },
     {
       id: 3,
-      title: "Développement Digital — Option Web Full Stack",
+      title: "Digital Development — Full-Stack Web Development",
       school: "ISTAG-Meknes",
       duration: "2022 – 2024",
       location: "Bab Tizimi, Meknes",
       description:
-        "Diplôme de technicien spécialisé en développement digital, axé sur le développement web full stack, les bases de données et les fondamentaux de la programmation.",
+        "Specialized Technician Diploma in Digital Development, focused on full-stack web development, databases, and programming fundamentals.",
     },
     {
       id: 4,
-      title: "Baccalauréat — Sciences Physiques",
+      title: "Baccalaureate — Physical Sciences",
       school: "Lycée Almontalak - Meknes",
       duration: "2019 – 2020",
-      location: "Meknes, Maroc",
+      location: "Meknes, Morocco",
       description:
-        "Baccalauréat scientifique avec spécialisation en sciences physiques, base solide en mathématiques et sciences.",
+        "Scientific Baccalaureate with a specialization in Physical Sciences, providing a strong foundation in mathematics and science.",
     },
   ];
 
@@ -75,12 +86,12 @@ function AboutCard() {
     {
       id: 2,
       role: "Web Developer",
-      company: "ONEE — Branche Eau",
+      company: "ONEE — Water Division",
       type: "Internship",
       duration: "Mar 2024 – Apr 2024 · 2 mos",
       location: "Meknes, Morocco · On-site",
       description:
-        "Development of a problem management application for internal operations. Participated in full project lifecycle including needs analysis, database design, UI/UX design, and feature implementation.",
+        "Development of a problem management application for internal operations. Participated in the full project lifecycle, including requirements analysis, database design, UI/UX design, and feature implementation.",
       highlights: [
         "Designed and implemented the backend with Laravel (MVC architecture, Eloquent ORM, middleware).",
         "Built a responsive and modern frontend using Tailwind CSS with reusable components.",
@@ -102,61 +113,94 @@ function AboutCard() {
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
+
           {/* ===== INTRO ===== */}
           <div className="intro-panel">
-         <p style={{ textAlign: "justify", marginBottom: 0 }}> Hello! I’m <span className="purple">Abdelhadi Bouzani</span> from{" "} <span className="purple">Morocco</span>.<br /><br />
+            <p style={{ textAlign: "justify", marginBottom: 0 }}>
+              Hello! I’m{" "}
+              <span className="purple">Abdelhadi Bouzani</span> from{" "}
+              <span className="purple">Morocco</span>.
+              <br />
+              <br />
 
-            I’m a passionate <span className="purple">Software Developer</span> who enjoys
-            building modern, practical, and user-friendly digital solutions. I have a strong
-            interest in <span className="purple">web and application development</span>,
-            constantly exploring new technologies, tools, and frameworks to improve my skills
-            and create better solutions.<br /><br />
+              I’m a passionate{" "}
+              <span className="purple">Software Developer</span> who enjoys
+              building modern, practical, and user-friendly digital solutions.
+              I have a strong interest in{" "}
+              <span className="purple">web and application development</span>,
+              constantly exploring new technologies, tools, and frameworks to
+              improve my skills and create better solutions.
+              <br />
+              <br />
 
-            I enjoy turning ideas into functional projects, solving technical problems, and
-            learning through real-world challenges. I’m always looking for opportunities to
-            grow, experiment with new technologies, and stay up to date with the latest trends
-            in software development.<br /><br />
+              I enjoy turning ideas into functional projects, solving technical
+              problems, and learning through real-world challenges. I’m always
+              looking for opportunities to grow, experiment with new
+              technologies, and stay up to date with the latest trends in
+              software development.
+              <br />
+              <br />
 
-            Outside of coding, I enjoy going to the gym, taking on new challenges, and
-            continuously working on both my professional and personal growth.
-
+              Outside of coding, I enjoy going to the gym, taking on new
+              challenges, and continuously working on both my professional and
+              personal growth.
             </p>
           </div>
 
-          {/* ===== ÉTUDES & PARCOURS ===== */}
+          {/* ===== EDUCATION & ACADEMIC JOURNEY ===== */}
           <div className="section-title">
             <span className="section-icon edu-icon">
               <MdSchool />
             </span>
+
             <h2>
-              Études & <span className="purple">Parcours</span>
+              Education & <span className="purple">Academic Journey</span>
             </h2>
           </div>
 
           <div className="timeline">
-            {etudes.map((edu, index) => {
+            {studies.map((edu, index) => {
               const current = index === 0;
+
               return (
                 <div className="timeline-item" key={edu.id}>
                   <div
-                    className={`timeline-dot ${current ? "dot-active" : "dot-edu"}`}
+                    className={`timeline-dot ${
+                      current ? "dot-active" : "dot-edu"
+                    }`}
                   />
-                  <div className={`timeline-card ${current ? "current" : ""}`}>
+
+                  <div
+                    className={`timeline-card ${
+                      current ? "current" : ""
+                    }`}
+                  >
                     <h4>
-                      {edu.title} <span className="at-school">@ {edu.school}</span>
+                      {edu.title}{" "}
+                      <span className="at-school">
+                        @ {edu.school}
+                      </span>
                     </h4>
 
                     <div className="meta-row">
                       <span className="meta-chip">
                         <MdCalendarToday /> {edu.duration}
                       </span>
+
                       <span className="meta-chip">
                         <MdLocationOn /> {edu.location}
                       </span>
-                      {current && <span className="status-badge">En cours</span>}
+
+                      {current && (
+                        <span className="status-badge">
+                          In Progress
+                        </span>
+                      )}
                     </div>
 
-                    <p className="card-desc">{edu.description}</p>
+                    <p className="card-desc">
+                      {edu.description}
+                    </p>
                   </div>
                 </div>
               );
@@ -168,6 +212,7 @@ function AboutCard() {
             <span className="section-icon edu-icon">
               <MdWorkOutline />
             </span>
+
             <h2>
               Professional <span className="purple">Experience</span>
             </h2>
@@ -179,26 +224,39 @@ function AboutCard() {
                 className="timeline-item"
                 key={exp.id}
                 style={{
-                  marginBottom: index === experiences.length - 1 ? 0 : undefined,
+                  marginBottom:
+                    index === experiences.length - 1
+                      ? 0
+                      : undefined,
                 }}
               >
                 <div className="timeline-dot dot-edu" />
+
                 <div className="timeline-card">
                   <h4>
-                    {exp.role} <span className="at-school">@ {exp.company}</span>
+                    {exp.role}{" "}
+                    <span className="at-school">
+                      @ {exp.company}
+                    </span>
                   </h4>
 
                   <div className="meta-row">
                     <span className="meta-chip">
                       <MdCalendarToday /> {exp.duration}
                     </span>
+
                     <span className="meta-chip">
                       <MdLocationOn /> {exp.location}
                     </span>
-                    <span className="type-badge">{exp.type}</span>
+
+                    <span className="type-badge">
+                      {exp.type}
+                    </span>
                   </div>
 
-                  <p className="card-desc">{exp.description}</p>
+                  <p className="card-desc">
+                    {exp.description}
+                  </p>
 
                   <ul className="highlight-list">
                     {exp.highlights.map((item, i) => (
@@ -212,7 +270,11 @@ function AboutCard() {
                   <div className="tech-row">
                     {exp.tech.map((t, i) => (
                       <span className="tech-chip" key={i}>
-                        {t.icon && <span className="tech-chip-icon">{t.icon}</span>}
+                        {t.icon && (
+                          <span className="tech-chip-icon">
+                            {t.icon}
+                          </span>
+                        )}
                         {t.name}
                       </span>
                     ))}
@@ -266,7 +328,11 @@ function AboutCard() {
 
         .edu-icon {
           color: #c084f5;
-          background: linear-gradient(135deg, rgba(192,132,245,0.18), rgba(98,54,134,0.18));
+          background: linear-gradient(
+            135deg,
+            rgba(192, 132, 245, 0.18),
+            rgba(98, 54, 134, 0.18)
+          );
           border: 1px solid rgba(192, 132, 245, 0.3);
         }
 
@@ -283,7 +349,11 @@ function AboutCard() {
           top: 6px;
           bottom: 6px;
           width: 2px;
-          background: linear-gradient(180deg, #c084f5, rgba(98, 54, 134, 0.2));
+          background: linear-gradient(
+            180deg,
+            #c084f5,
+            rgba(98, 54, 134, 0.2)
+          );
           border-radius: 2px;
         }
 
@@ -326,7 +396,10 @@ function AboutCard() {
           border-radius: 16px;
           padding: 22px 26px;
           overflow: hidden;
-          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          transition:
+            transform 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
         }
 
         .timeline-card::before {
@@ -336,7 +409,11 @@ function AboutCard() {
           top: 0;
           bottom: 0;
           width: 3px;
-          background: linear-gradient(180deg, #c084f5, #623686);
+          background: linear-gradient(
+            180deg,
+            #c084f5,
+            #623686
+          );
         }
 
         .timeline-card.current {
@@ -344,7 +421,11 @@ function AboutCard() {
         }
 
         .timeline-card.current::before {
-          background: linear-gradient(180deg, #4ade80, #16a34a);
+          background: linear-gradient(
+            180deg,
+            #4ade80,
+            #16a34a
+          );
         }
 
         .timeline-card:hover {
@@ -477,23 +558,29 @@ function AboutCard() {
           .section-title h2 {
             font-size: 1.5rem;
           }
+
           .section-icon {
             width: 40px;
             height: 40px;
             font-size: 1.15rem;
           }
+
           .timeline::before {
             left: 16px;
           }
+
           .timeline-item {
             padding-left: 44px;
           }
+
           .timeline-dot {
             left: 7px;
           }
+
           .timeline-card {
             padding: 18px 18px;
           }
+
           .intro-panel {
             padding: 20px;
           }
