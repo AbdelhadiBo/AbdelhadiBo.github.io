@@ -52,5 +52,17 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
+  },
+  "description": "<h2 align=\"center\">   Abdelhadi Bouzani Portfolio Website - v2.0<br/> </h2>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdelhadibo/AbdelhadiBo.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdelhadibo/AbdelhadiBo.github.io/issues"
   }
 }
