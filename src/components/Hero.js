@@ -105,39 +105,6 @@ export default function Hero() {
                 fetchPriority="high"
               />
             </div>
-
-            <div className="hero__code">
-              <div className="hero__code-bar">
-                <i aria-hidden="true" />
-                <i aria-hidden="true" />
-                <i aria-hidden="true" />
-                <span>profile.json</span>
-              </div>
-              <pre>
-                <code>
-                  <span className="k">{"{"}</span>
-                  {"\n  "}
-                  <span className="k">"role"</span>
-                  {": "}
-                  <span className="s">"{profile.roles[0]}"</span>
-                  {",\n  "}
-                  <span className="k">"basedIn"</span>
-                  {": "}
-                  <span className="s">"{profile.city}"</span>
-                  {",\n  "}
-                  <span className="k">"stack"</span>
-                  {": ["}
-                  {profile.stack.map((item, i) => (
-                    <React.Fragment key={item}>
-                      {i ? ", " : ""}
-                      <span className="s">"{item}"</span>
-                    </React.Fragment>
-                  ))}
-                  {"]\n"}
-                  <span className="k">{"}"}</span>
-                </code>
-              </pre>
-            </div>
           </Reveal>
         </div>
       </div>

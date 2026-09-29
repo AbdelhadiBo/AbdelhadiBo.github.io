@@ -3,15 +3,9 @@ import SectionHead from "../components/SectionHead";
 import Reveal from "../components/Reveal";
 import ExperienceTimeline from "../components/timeline/ExperienceTimeline";
 import EducationTimeline from "../components/timeline/EducationTimeline";
-import usePageMeta from "../hooks/usePageMeta";
 import { about, profile } from "../data/portfolio";
 
 export default function About() {
-  usePageMeta(
-    "About",
-    `About ${profile.name} — a full-stack and mobile engineer from ${profile.location} working with Laravel, Flutter, React, Java and PHP. Education, experience and stack.`
-  );
-
   return (
     <>
       <section className="page-head">
