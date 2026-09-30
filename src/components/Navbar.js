@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { FiX, FiArrowUpRight } from "react-icons/fi";
 import LanguageSwitcher from "./LanguageSwitcher";
 import CvDownload from "./CvDownload";
 import { socials } from "../data/portfolio";
@@ -128,18 +127,6 @@ function Navbar() {
         aria-modal="true"
         aria-label={t.ui.siteMenu}
       >
-        <button
-          type="button"
-          className="btn btn--icon drawer__close"
-          onClick={() => {
-            setOpen(false);
-            toggleRef.current?.focus();
-          }}
-          aria-label={t.ui.closeMenu}
-        >
-          <FiX aria-hidden="true" />
-        </button>
-
         <ul className="drawer__list">
           {navLinks.map((link, index) => (
             <li key={link.to}>
@@ -151,9 +138,7 @@ function Navbar() {
                   `drawer__link${isActive ? " is-active" : ""}`
                 }
               >
-                <span>{String(index + 1).padStart(2, "0")}</span>
                 <span>{link.label}</span>
-                <FiArrowUpRight aria-hidden="true" />
               </NavLink>
             </li>
           ))}

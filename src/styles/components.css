@@ -392,17 +392,47 @@
 }
 
 .nav__burger {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--border);
-  border-radius: 13px;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
   background: var(--surface-1);
   color: var(--text);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    var(--shadow-xs);
+  -webkit-tap-highlight-color: transparent;
   transition:
-    background-color 0.25s var(--ease),
-    border-color 0.25s var(--ease);
+    color var(--dur) var(--ease),
+    border-color 0.24s var(--ease),
+    background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.nav__burger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    90px 90px at 50% 50%,
+    rgba(168, 85, 247, 0.22),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+  pointer-events: none;
+}
+
+.nav__burger:hover::before,
+.nav__burger:active::before,
+.nav__burger.is-open::before {
+  opacity: 1;
 }
 
 .nav__burger span {
@@ -412,7 +442,7 @@
   height: 2px;
   border-radius: 2px;
   background: currentColor;
-  transition: transform 0.3s var(--ease);
+  transition: opacity 0.24s var(--ease);
 }
 
 .nav__burger span::before,
@@ -424,7 +454,7 @@
   height: 2px;
   border-radius: 2px;
   background: currentColor;
-  transition: transform 0.3s var(--ease);
+  transition: transform 0.34s var(--ease);
 }
 
 .nav__burger span::before {
@@ -436,15 +466,37 @@
 }
 
 .nav__burger.is-open span {
-  transform: rotate(45deg);
+  opacity: 0;
 }
 
 .nav__burger.is-open span::before {
-  transform: translateY(6px) rotate(-90deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .nav__burger.is-open span::after {
-  transform: translateY(-6px) rotate(-90deg);
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__burger:hover {
+    border-color: var(--accent-ring);
+    background: var(--surface-2);
+    color: var(--accent);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 10px 24px -12px rgba(168, 85, 247, 0.55);
+    transform: translateY(-1px);
+  }
+}
+
+.nav__burger:active {
+  transform: scale(0.94);
+}
+
+.nav__burger.is-open {
+  border-color: var(--accent-ring);
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 @media (min-width: 1024px) {
@@ -651,18 +703,45 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   transform: translateX(100%);
+  opacity: 0;
   visibility: hidden;
+  will-change: transform, opacity;
   transition:
-    transform 0.44s var(--ease),
-    visibility 0s linear 0.44s;
+    transform 0.46s var(--ease-out),
+    opacity 0.3s var(--ease),
+    visibility 0s linear 0.46s;
+}
+
+.drawer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(192, 132, 252, 0.55),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+  pointer-events: none;
 }
 
 .drawer.is-open {
   transform: none;
+  opacity: 1;
   visibility: visible;
   transition:
-    transform 0.44s var(--ease),
+    transform 0.46s var(--ease-out),
+    opacity 0.34s var(--ease),
     visibility 0s linear 0s;
+}
+
+.drawer.is-open::before {
+  opacity: 1;
 }
 
 .drawer__list {
@@ -684,23 +763,7 @@
   letter-spacing: -0.01em;
 }
 
-.drawer__link span:first-child {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-dim);
-}
-
-.drawer__link svg {
-  margin-left: auto;
-  color: var(--text-dim);
-  transition: transform 0.3s var(--ease);
-}
-
 .drawer__link.is-active {
-  color: var(--accent);
-}
-
-.drawer__link.is-active span:first-child {
   color: var(--accent);
 }
 
@@ -738,12 +801,6 @@
   gap: 8px;
 }
 
-.drawer__close {
-  position: absolute;
-  top: calc(var(--nav-h) + 6px);
-  right: var(--gutter);
-}
-
 .drawer.is-open .drawer__link,
 .drawer.is-open .drawer__foot {
   animation: drawer-in 0.5s var(--ease-out) both;
@@ -753,7 +810,7 @@
 @keyframes drawer-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
