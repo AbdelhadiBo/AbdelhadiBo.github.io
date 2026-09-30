@@ -47,6 +47,12 @@ export default function Contact() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="contact-form-title">
+        <div className="container container--narrow">
+          <ContactForm />
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="channels-title">
         <div className="container">
           <SectionHead
@@ -57,12 +63,6 @@ export default function Contact() {
             sub={t.contactPage.sectionSub}
           />
           <ContactGrid />
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="contact-form-title">
-        <div className="container container--narrow">
-          <ContactForm />
         </div>
       </section>
 

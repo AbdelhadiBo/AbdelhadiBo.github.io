@@ -143,7 +143,6 @@ export default function ContactForm() {
   return (
     <Reveal className="cform">
       <div className="cform__head">
-        <span className="eyebrow">{t.contactForm.eyebrow}</span>
         <h2 className="cform__title" id="contact-form-title">
           {t.contactForm.title}
         </h2>

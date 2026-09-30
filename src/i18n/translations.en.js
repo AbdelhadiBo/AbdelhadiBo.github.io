@@ -259,7 +259,6 @@ const en = {
   },
 
   contactForm: {
-    eyebrow: "Form",
     title: "Write to me directly",
     sub: "Tell me about your project in a few lines. I usually reply within 24 to 48 hours.",
     name: "Name",
