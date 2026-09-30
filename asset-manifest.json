@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.78a3f708.css",
-    "main.js": "/static/js/main.9feeb4a1.js",
+    "main.css": "/static/css/main.0cedd605.css",
+    "main.js": "/static/js/main.a0e0a136.js",
     "static/js/453.635f5f07.chunk.js": "/static/js/453.635f5f07.chunk.js",
     "static/media/AbdelhadiBouzani.png": "/static/media/AbdelhadiBouzani.51a4f1372302dc856c29.png",
     "index.html": "/index.html",
-    "main.78a3f708.css.map": "/static/css/main.78a3f708.css.map",
-    "main.9feeb4a1.js.map": "/static/js/main.9feeb4a1.js.map",
+    "main.0cedd605.css.map": "/static/css/main.0cedd605.css.map",
+    "main.a0e0a136.js.map": "/static/js/main.a0e0a136.js.map",
     "453.635f5f07.chunk.js.map": "/static/js/453.635f5f07.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78a3f708.css",
-    "static/js/main.9feeb4a1.js"
+    "static/css/main.0cedd605.css",
+    "static/js/main.a0e0a136.js"
   ]
 }
