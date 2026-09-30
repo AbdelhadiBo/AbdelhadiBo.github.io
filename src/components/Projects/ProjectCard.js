@@ -6,16 +6,12 @@ import { useLang } from "../../i18n/LanguageContext";
 export default function ProjectCard({ project, index = 0, delay = 0 }) {
   const { t } = useLang();
   const monogram = project.title.trim().charAt(0).toUpperCase();
-  const number = String(index + 1).padStart(2, "0");
 
   return (
     <Reveal as="li" className="pcard" delay={delay}>
       <div className="pcard__head">
         <span className="pcard__mono" aria-hidden="true">
           {monogram}
-        </span>
-        <span className="pcard__num" aria-hidden="true">
-          {number}
         </span>
       </div>
 

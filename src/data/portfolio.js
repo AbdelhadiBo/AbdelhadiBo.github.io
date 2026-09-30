@@ -49,7 +49,6 @@ export const CV_FILES = {
 
 export const profile = {
   name: "Abdelhadi Bouzani",
-  initials: "AB",
   stack: ["Laravel", "Flutter", "React", "MySQL"],
   photo,
 };
@@ -154,6 +153,12 @@ export const skills = [
 ];
 
 export const projects = [
+  {
+    id: "portfolio",
+    title: "Portfolio",
+    tags: ["React", "JavaScript", "Framer Motion", "CSS"],
+    href: "https://github.com/AbdelhadiBo/AbdelhadiBo.github.io",
+  },
   {
     id: "gestion-d-articles",
     title: "Gestion-d-Articles",

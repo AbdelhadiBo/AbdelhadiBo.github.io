@@ -56,9 +56,6 @@ function Navbar() {
             className="nav__brand"
             aria-label={`${profile.name} — ${t.nav.home.toLowerCase()}`}
           >
-            <span className="nav__mark" aria-hidden="true">
-              {profile.initials}
-            </span>
             <span className="nav__name">
               {profile.name}
               <small>{t.ui.roleTagline}</small>

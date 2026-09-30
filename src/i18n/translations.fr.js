@@ -80,6 +80,8 @@ const fr = {
   },
 
   projects: {
+    portfolio:
+      "Site portfolio personnel développé avec React, design sur mesure, animations fluides et support bilingue français / anglais.",
     "gestion-d-articles":
       "Application web CRUD simple pour gérer des articles, développée avec Spring Boot et Thymeleaf.",
     ecommercephp:
