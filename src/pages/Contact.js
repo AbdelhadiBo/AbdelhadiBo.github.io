@@ -1,16 +1,24 @@
 import React from "react";
-import { FiDownload } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import SectionHead from "../components/SectionHead";
 import ContactGrid from "../components/contact/ContactGrid";
+import ContactForm from "../components/ContactForm";
+import CvDownload from "../components/CvDownload";
 import Reveal from "../components/Reveal";
 import usePageMeta from "../hooks/usePageMeta";
-import { profile, CV_URL } from "../data/portfolio";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function Contact() {
+  const { profile, t } = useLang();
+
   usePageMeta(
-    "Contact",
-    `Contact ${profile.name} — ${profile.roles[0].toLowerCase()} based in ${profile.city}. Reach me on WhatsApp, LinkedIn or GitHub.`
+    t.contactPage.title,
+    t.meta.contactDescription(
+      profile.name,
+      profile.metaRole,
+      profile.city
+    ),
+    t.meta.defaultTitle
   );
 
   return (
@@ -18,14 +26,12 @@ export default function Contact() {
       <section className="page-head">
         <div className="container">
           <Reveal>
-            <span className="eyebrow">Contact</span>
+            <span className="eyebrow">{t.contactPage.eyebrow}</span>
             <h1 className="page-head__title">
-              Let&apos;s talk about <span className="grad-text">your project</span>
+              {t.contactPage.titleBefore}{" "}
+              <span className="grad-text">{t.contactPage.titleAccent}</span>
             </h1>
-            <p className="page-head__sub">
-              I&apos;m based in {profile.city} and build web applications,
-              mobile and desktop apps. Pick the channel you prefer.
-            </p>
+            <p className="page-head__sub">{t.contactPage.sub(profile.city)}</p>
             <div className="btn-row mt-4">
               <a
                 className="btn btn--primary"
@@ -33,12 +39,9 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Message me on WhatsApp
+                {t.contactPage.whatsappCta}
               </a>
-              <a className="btn btn--ghost" href={CV_URL} download>
-                <FiDownload aria-hidden="true" />
-                Résumé
-              </a>
+              <CvDownload className="btn--ghost" />
             </div>
           </Reveal>
         </div>
@@ -48,29 +51,33 @@ export default function Contact() {
         <div className="container">
           <SectionHead
             center
-            eyebrow="Channels"
+            eyebrow={t.contactPage.sectionEyebrow}
             id="channels-title"
-            title="Where to find me"
-            sub="Fastest replies usually come from WhatsApp, but I read everything."
+            title={t.contactPage.sectionTitle}
+            sub={t.contactPage.sectionSub}
           />
           <ContactGrid />
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="contact-form-title">
+        <div className="container container--narrow">
+          <ContactForm />
         </div>
       </section>
 
       <section className="section section--tight">
         <div className="container container--narrow">
           <Reveal className="cta-band">
-            <span className="eyebrow">Next step</span>
-            <h2 className="cta-band__title">Prefer to browse the work first?</h2>
-            <p className="cta-band__text">
-              Every project is public on GitHub, with the code and setup notes.
-            </p>
+            <span className="eyebrow">{t.contactPage.ctaEyebrow}</span>
+            <h2 className="cta-band__title">{t.contactPage.ctaTitle}</h2>
+            <p className="cta-band__text">{t.contactPage.ctaText}</p>
             <div className="cta-band__actions">
               <Link className="btn btn--primary" to="/projects">
-                See the projects
+                {t.contactPage.ctaProjects}
               </Link>
               <Link className="btn btn--ghost" to="/about">
-                Read about me
+                {t.contactPage.ctaAbout}
               </Link>
             </div>
           </Reveal>

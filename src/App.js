@@ -14,12 +14,15 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import { LanguageProvider, useLang } from "./i18n/LanguageContext";
 
-function App() {
+function Shell() {
+  const { t } = useLang();
+
   return (
     <Router>
       <a className="skip-link" href="#main">
-        Skip to content
+        {t.ui.skipToContent}
       </a>
 
       <Navbar />
@@ -40,6 +43,14 @@ function App() {
       <Footer />
       <BackToTop />
     </Router>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <Shell />
+    </LanguageProvider>
   );
 }
 

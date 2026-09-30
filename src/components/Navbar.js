@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FiX, FiArrowUpRight } from "react-icons/fi";
-import { profile, navLinks, socials, CV_URL } from "../data/portfolio";
+import LanguageSwitcher from "./LanguageSwitcher";
+import CvDownload from "./CvDownload";
+import { socials } from "../data/portfolio";
 import useScrollProgress from "../hooks/useScrollProgress";
+import { useLang } from "../i18n/LanguageContext";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,6 +14,7 @@ function Navbar() {
   const { pathname } = useLocation();
   const toggleRef = useRef(null);
   const drawerRef = useRef(null);
+  const { navLinks, profile, t } = useLang();
   const GithubIcon = socials[0].icon;
 
   useEffect(() => {
@@ -51,18 +55,18 @@ function Navbar() {
           <Link
             to="/"
             className="nav__brand"
-            aria-label={`${profile.name} — home`}
+            aria-label={`${profile.name} — ${t.nav.home.toLowerCase()}`}
           >
             <span className="nav__mark" aria-hidden="true">
               {profile.initials}
             </span>
             <span className="nav__name">
               {profile.name}
-              <small>Full-Stack &amp; Mobile Engineer</small>
+              <small>{t.ui.roleTagline}</small>
             </span>
           </Link>
 
-          <nav className="nav__links" aria-label="Main">
+          <nav className="nav__links" aria-label={t.ui.mainNavigation}>
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
@@ -78,19 +82,22 @@ function Navbar() {
           </nav>
 
           <div className="nav__actions">
+            <LanguageSwitcher />
+
             <a
               className="btn btn--ghost btn--icon nav__github"
               href={socials[0].href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${socials[0].label} profile (opens in a new tab)`}
+              aria-label={`${t.ui.githubProfile} (${t.ui.newTab})`}
             >
               <GithubIcon aria-hidden="true" />
             </a>
 
-            <a className="btn btn--primary btn--sm nav__cta" href={CV_URL} download>
-              Résumé
-            </a>
+            <CvDownload
+              className="btn--primary btn--sm nav__cta"
+              showIcon={false}
+            />
 
             <button
               ref={toggleRef}
@@ -98,7 +105,7 @@ function Navbar() {
               className={`nav__burger${open ? " is-open" : ""}`}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
+              aria-label={open ? t.ui.closeMenu : t.ui.openMenu}
               onClick={() => setOpen((value) => !value)}
             >
               <span aria-hidden="true" />
@@ -119,7 +126,7 @@ function Navbar() {
         className={`drawer${open ? " is-open" : ""}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label={t.ui.siteMenu}
       >
         <button
           type="button"
@@ -128,7 +135,7 @@ function Navbar() {
             setOpen(false);
             toggleRef.current?.focus();
           }}
-          aria-label="Close menu"
+          aria-label={t.ui.closeMenu}
         >
           <FiX aria-hidden="true" />
         </button>
@@ -153,15 +160,14 @@ function Navbar() {
         </ul>
 
         <div className="drawer__foot" style={{ "--i": navLinks.length }}>
-          <a
-            className="btn btn--ghost btn--block"
-            href={CV_URL}
-            download
-          >
-            Download Résumé
-          </a>
+          <div className="drawer__lang">
+            <span className="drawer__label">{t.ui.language}</span>
+            <LanguageSwitcher />
+          </div>
 
-          <span className="drawer__label">Find me online</span>
+          <CvDownload className="btn--ghost" block />
+
+          <span className="drawer__label">{t.ui.findMeOnline}</span>
 
           <div className="drawer__socials">
             {socials.map((social) => (
@@ -172,7 +178,7 @@ function Navbar() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${social.label} (opens in a new tab)`}
+                aria-label={`${social.label} (${t.ui.newTab})`}
               >
                 <span className="social-btn__icon" aria-hidden="true">
                   <social.icon />

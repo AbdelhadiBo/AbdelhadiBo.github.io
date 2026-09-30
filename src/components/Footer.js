@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { profile, navLinks, socials, CV_URL } from "../data/portfolio";
+import CvDownload from "./CvDownload";
+import { socials } from "../data/portfolio";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { navLinks, profile, t } = useLang();
 
   return (
     <footer className="footer">
@@ -11,22 +14,12 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <p className="footer__title">{profile.name}</p>
-            <p className="footer__text">
-              Full-stack &amp; mobile engineer building modern, practical and
-              user-friendly digital solutions — web applications, CRUD systems
-              and database-driven products.
-            </p>
-            <a
-              className="btn btn--ghost btn--sm mt-3"
-              href={CV_URL}
-              download
-            >
-              Download Résumé
-            </a>
+            <p className="footer__text">{t.footer.text}</p>
+            <CvDownload className="btn--ghost btn--sm mt-3" />
           </div>
 
-          <nav aria-label="Footer">
-            <p className="footer__label">Navigate</p>
+          <nav aria-label={t.ui.footerNavigation}>
+            <p className="footer__label">{t.footer.navigate}</p>
             <ul className="footer__links">
               {navLinks.map((link) => (
                 <li key={link.to}>
@@ -37,7 +30,7 @@ export default function Footer() {
           </nav>
 
           <div>
-            <p className="footer__label">Find me online</p>
+            <p className="footer__label">{t.footer.findMeOnline}</p>
             <ul className="footer__links">
               {socials.map((social) => {
                 const Icon = social.icon;
@@ -63,12 +56,8 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span>
-            © {year} {profile.name}. All rights reserved.
-          </span>
-          <span>
-            Designed &amp; built with React — Based in {profile.location}
-          </span>
+          <span>{t.footer.rights(year, profile.name)}</span>
+          <span>{t.footer.credit(profile.city)}</span>
         </div>
       </div>
     </footer>

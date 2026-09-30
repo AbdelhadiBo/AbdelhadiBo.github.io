@@ -1,8 +1,10 @@
 import React from "react";
 import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import Reveal from "../Reveal";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function ProjectCard({ project, index = 0, delay = 0 }) {
+  const { t } = useLang();
   const monogram = project.title.trim().charAt(0).toUpperCase();
   const number = String(index + 1).padStart(2, "0");
 
@@ -32,16 +34,18 @@ export default function ProjectCard({ project, index = 0, delay = 0 }) {
 
       <p className="pcard__foot">
         <FiGithub aria-hidden="true" />
-        View on GitHub
+        {t.ui.viewOnGithub}
         <FiArrowUpRight aria-hidden="true" />
         <a
           className="pcard__link"
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${project.title} on GitHub (opens in a new tab)`}
+          aria-label={`${project.title} ${t.ui.onGithub} (${t.ui.newTab})`}
         >
-          <span className="visually-hidden">{project.title} repository</span>
+          <span className="visually-hidden">
+            {project.title} {t.ui.repository}
+          </span>
         </a>
       </p>
     </Reveal>

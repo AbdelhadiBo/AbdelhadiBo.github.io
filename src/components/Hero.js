@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { MdLocationOn, MdSchool } from "react-icons/md";
+import CvDownload from "./CvDownload";
 import Reveal from "./Reveal";
-import { profile, CV_URL } from "../data/portfolio";
+import { useLang } from "../i18n/LanguageContext";
 
 function RoleRotator({ items }) {
   const [index, setIndex] = useState(0);
@@ -33,13 +34,15 @@ function RoleRotator({ items }) {
 }
 
 export default function Hero() {
+  const { lang, profile, t } = useLang();
+
   return (
     <section className="hero" id="home" aria-labelledby="hero-name">
       <div className="container">
         <div className="hero__grid">
           <div className="hero__copy">
             <Reveal as="h1" className="hero__title" id="hero-name">
-              <small>Hi, I&apos;m</small>
+              <small>{t.home.greeting}</small>
               {profile.name}
               <span className="grad-text">.</span>
             </Reveal>
@@ -51,7 +54,7 @@ export default function Hero() {
               <span className="visually-hidden">
                 {profile.roles.join(", ")}.
               </span>
-              <RoleRotator items={profile.roles} />
+              <RoleRotator key={lang} items={profile.roles} />
             </Reveal>
 
             <Reveal as="p" className="hero__text" delay={180}>
@@ -60,19 +63,16 @@ export default function Hero() {
 
             <Reveal className="btn-row hero__actions" delay={240}>
               <Link className="btn btn--primary" to="/projects">
-                View projects
+                {t.home.viewProjects}
                 <FiArrowRight aria-hidden="true" />
               </Link>
-              <a className="btn btn--ghost" href={CV_URL} download>
-                <FiDownload aria-hidden="true" />
-                Résumé
-              </a>
+              <CvDownload className="btn--ghost" />
             </Reveal>
 
             <Reveal className="hero__meta" delay={300}>
               <span className="hero__meta-item">
                 <MdLocationOn aria-hidden="true" />
-                Based in {profile.location}
+                {t.ui.basedIn(profile.city)}
               </span>
               <span className="hero__meta-item">
                 <MdSchool aria-hidden="true" />
@@ -84,7 +84,7 @@ export default function Hero() {
               as="ul"
               className="facts"
               delay={340}
-              aria-label="Quick facts"
+              aria-label={t.ui.quickFacts}
             >
               {profile.facts.map((fact) => (
                 <li key={fact.label} className="fact">
@@ -99,7 +99,7 @@ export default function Hero() {
             <div className="hero__photo">
               <img
                 src={profile.photo}
-                alt={`${profile.name}, full-stack and mobile engineer`}
+                alt={`${profile.name}, ${t.ui.photoAlt}`}
                 width="330"
                 height="395"
                 fetchPriority="high"

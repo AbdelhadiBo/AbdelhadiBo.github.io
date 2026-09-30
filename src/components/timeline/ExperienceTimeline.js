@@ -1,9 +1,11 @@
 import React from "react";
 import { MdCalendarToday, MdLocationOn, MdWorkOutline } from "react-icons/md";
 import Reveal from "../Reveal";
-import { experience } from "../../data/portfolio";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function ExperienceTimeline() {
+  const { experience, t } = useLang();
+
   return (
     <div className="timeline">
       {experience.map((job, index) => (
@@ -43,7 +45,7 @@ export default function ExperienceTimeline() {
             </ul>
 
             {job.tech?.length ? (
-              <ul className="chip-row tl-tech" aria-label="Technologies used">
+              <ul className="chip-row tl-tech" aria-label={t.ui.technologiesUsed}>
                 {job.tech.map((tech) => {
                   const TechIcon = tech.icon;
                   return (

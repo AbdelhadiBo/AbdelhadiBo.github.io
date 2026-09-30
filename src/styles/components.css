@@ -470,6 +470,173 @@
   opacity: 1;
 }
 
+/* ---------- Language switcher (FR | EN) ---------- */
+.langswitch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface-1);
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.langswitch__btn {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 0;
+  min-width: 34px;
+  min-height: 38px;
+  padding: 0 8px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--text-dim);
+  transition: color 0.3s var(--ease);
+}
+
+.langswitch__btn.is-active {
+  color: #17092a;
+}
+
+.langswitch__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / 2);
+  border-radius: var(--r-pill);
+  background: var(--grad-accent);
+  box-shadow: var(--glow);
+  transform: translateX(calc(var(--i, 0) * 100%));
+  transition: transform 0.36s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .langswitch:hover {
+    border-color: var(--accent-ring);
+    background: var(--surface-2);
+  }
+
+  .langswitch__btn:not(.is-active):hover {
+    color: var(--text);
+  }
+}
+
+.langswitch__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Slightly roomier hit area on touch devices */
+@media (hover: none) {
+  .langswitch__btn {
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 359px) {
+  .langswitch__btn {
+    min-width: 30px;
+    padding: 0 5px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ---------- Language-aware CV download ---------- */
+.cv-switch {
+  display: inline-flex;
+  flex: none;
+}
+
+.cv-switch--block {
+  width: 100%;
+}
+
+.cv-switch .btn {
+  flex: 1 1 auto;
+}
+
+/* The author-level `display` on .btn outranks the user-agent `[hidden]`
+   rule, so the inactive language has to be hidden explicitly. */
+.cv-switch .btn[hidden] {
+  display: none;
+}
+
+.cv-switch__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 27px;
+  height: 20px;
+  margin-left: 2px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: inherit;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.btn--primary .cv-switch__badge {
+  background: rgba(23, 9, 42, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--ghost:hover .cv-switch__badge,
+  .btn--quiet:hover .cv-switch__badge {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .btn--primary:hover .cv-switch__badge {
+    background: rgba(23, 9, 42, 0.24);
+  }
+}
+
+@keyframes cv-switch-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* `backwards` only, so the hover/active transforms keep working once the
+   entrance is over. */
+.cv-switch .btn:not([hidden]) {
+  animation: cv-switch-in 0.32s var(--ease) backwards;
+}
+
+@media (max-width: 480px) {
+  .cv-switch .btn {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 359px) {
+  .cv-switch__badge {
+    min-width: 24px;
+    padding: 0 5px;
+    font-size: 0.64rem;
+  }
+}
+
+
 /* ---------- Mobile drawer ---------- */
 .drawer {
   position: fixed;
@@ -544,6 +711,18 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.drawer__lang {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-1);
+}
+
 
 .drawer__label {
   font-family: var(--font-mono);
@@ -1042,4 +1221,316 @@
   border-top: 1px solid var(--border);
   font-size: 0.82rem;
   color: var(--text-dim);
+}
+
+/* ---------- Contact form ---------- */
+.cform {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 5vw, 44px);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(
+      620px 240px at 88% 0%,
+      rgba(168, 85, 247, 0.24),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.018) 100%
+    );
+  box-shadow: var(--shadow-md);
+}
+
+.cform__title {
+  margin-top: 12px;
+  font-size: clamp(1.3rem, 1.05rem + 1.2vw, 2rem);
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+}
+
+.cform__sub {
+  margin-top: 12px;
+  max-width: 52ch;
+  color: var(--text-muted);
+  font-size: clamp(0.92rem, 0.9rem + 0.2vw, 1.02rem);
+}
+
+.cform__form {
+  display: grid;
+  gap: 18px;
+  margin-top: clamp(22px, 3.4vw, 30px);
+}
+
+.cform__row {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cform__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cform__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cform__label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.cform__counter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.cform__input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 15px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface-1);
+  color: var(--text);
+  font-size: 0.95rem;
+  /* 16px on iOS, otherwise Safari zooms the viewport on focus */
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.cform__input::placeholder {
+  color: var(--text-dim);
+}
+
+.cform__input--area {
+  min-height: 148px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cform__input:hover:not(:disabled) {
+    border-color: var(--accent-ring);
+  }
+}
+
+.cform__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.cform__input:focus-visible {
+  outline: none;
+}
+
+.cform__input[aria-invalid="true"] {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.cform__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.cform__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--danger);
+}
+
+.cform__error::before {
+  content: "!";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--danger-soft);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+/* Off-screen rather than display:none, which most bots skip. */
+.cform__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cform__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface-1);
+  animation: cform-alert-in 0.34s var(--ease) backwards;
+}
+
+.cform__alert--success {
+  flex-wrap: wrap;
+  border-color: rgba(74, 222, 128, 0.32);
+  background: var(--success-soft);
+}
+
+.cform__alert--error {
+  border-color: var(--danger-ring);
+  background: var(--danger-soft);
+}
+
+.cform__alert--notice {
+  border-color: var(--accent-ring);
+  background: var(--accent-soft);
+}
+
+.cform__alert-icon {
+  flex: none;
+  margin-top: 2px;
+  font-size: 1.2rem;
+}
+
+.cform__alert--success .cform__alert-icon {
+  color: var(--success);
+}
+
+.cform__alert--error .cform__alert-icon {
+  color: var(--danger);
+}
+
+.cform__alert--notice .cform__alert-icon {
+  color: var(--accent);
+}
+
+.cform__alert-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.cform__alert-text {
+  margin-top: 3px;
+  font-size: 0.87rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.cform__alert--success .cform__alert-title {
+  color: var(--success);
+}
+
+.cform__alert--error .cform__alert-title {
+  color: var(--danger);
+}
+
+.cform__alert--notice .cform__alert-title {
+  color: var(--accent);
+}
+
+.cform__alert .btn {
+  margin-left: auto;
+}
+
+@keyframes cform-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cform__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 4px;
+}
+
+.cform__submit:disabled {
+  opacity: 0.75;
+  cursor: progress;
+  transform: none;
+}
+
+.cform__spinner {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(23, 9, 42, 0.28);
+  border-top-color: #17092a;
+  border-radius: 50%;
+  animation: cform-spin 0.7s linear infinite;
+}
+
+@keyframes cform-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .cform__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cform__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cform__submit {
+    width: 100%;
+  }
+
+  .cform__alert .btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* The global reduced-motion rule would freeze the spinner mid-turn, so it
+   becomes a static ring instead and the changing label carries the state. */
+@media (prefers-reduced-motion: reduce) {
+  .cform__spinner {
+    animation: none !important;
+    border-top-color: rgba(23, 9, 42, 0.28);
+    opacity: 0.5;
+  }
 }

@@ -3,16 +3,25 @@ import SectionHead from "../components/SectionHead";
 import Reveal from "../components/Reveal";
 import ExperienceTimeline from "../components/timeline/ExperienceTimeline";
 import EducationTimeline from "../components/timeline/EducationTimeline";
-import { about, profile } from "../data/portfolio";
+import usePageMeta from "../hooks/usePageMeta";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function About() {
+  const { about, profile, t } = useLang();
+
+  usePageMeta(
+    t.nav.about,
+    t.meta.aboutDescription(profile.name),
+    t.meta.defaultTitle
+  );
+
   return (
     <>
       <section className="page-head">
         <div className="container">
           <Reveal>
-            <span className="eyebrow">About me</span>
-            <h1 className="page-head__title">Know who I am</h1>
+            <span className="eyebrow">{t.aboutPage.eyebrow}</span>
+            <h1 className="page-head__title">{t.aboutPage.title}</h1>
             <p className="page-head__sub">{about.lead}</p>
           </Reveal>
         </div>
@@ -22,15 +31,15 @@ export default function About() {
         <div className="container">
           <div className="about-grid">
             <Reveal className="prose">
-              {about.paragraphs.slice(1).map((paragraph) => (
-                <p key={paragraph} className="lead">
+              {about.paragraphs.slice(1).map((paragraph, index) => (
+                <p key={index} className="lead">
                   {paragraph}
                 </p>
               ))}
             </Reveal>
 
             <Reveal as="div" delay={80}>
-              <p className="fact-block__label">Languages</p>
+              <p className="fact-block__label">{t.aboutPage.languagesLabel}</p>
               <ul className="chip-row mt-2">
                 {about.languages.map((language) => (
                   <li key={language} className="chip">
@@ -39,7 +48,9 @@ export default function About() {
                 ))}
               </ul>
 
-              <p className="fact-block__label mt-4">Frameworks</p>
+              <p className="fact-block__label mt-4">
+                {t.aboutPage.frameworksLabel}
+              </p>
               <ul className="chip-row mt-2">
                 {about.frameworks.map((framework) => (
                   <li key={framework} className="chip">
@@ -48,7 +59,9 @@ export default function About() {
                 ))}
               </ul>
 
-              <p className="fact-block__label mt-4">Based in</p>
+              <p className="fact-block__label mt-4">
+                {t.aboutPage.basedInLabel}
+              </p>
               <p className="tl-desc mt-1">{profile.city}</p>
             </Reveal>
           </div>
@@ -59,10 +72,10 @@ export default function About() {
         <div className="container container--narrow">
           <SectionHead
             center
-            eyebrow="Experience"
+            eyebrow={t.aboutPage.experienceEyebrow}
             id="experience-title"
-            title="Professional experience"
-            sub="Two internships building production software for real businesses."
+            title={t.aboutPage.experienceTitle}
+            sub={t.aboutPage.experienceSub}
           />
           <ExperienceTimeline />
         </div>
@@ -72,10 +85,10 @@ export default function About() {
         <div className="container container--narrow">
           <SectionHead
             center
-            eyebrow="Education"
+            eyebrow={t.aboutPage.educationEyebrow}
             id="education-title"
-            title="Academic journey"
-            sub="A continuous path through computer engineering and full-stack web development."
+            title={t.aboutPage.educationTitle}
+            sub={t.aboutPage.educationSub}
           />
           <EducationTimeline />
         </div>

@@ -6,16 +6,19 @@ import SectionHead from "../components/SectionHead";
 import Skills from "../components/skills/Skills";
 import ProjectCard from "../components/Projects/ProjectCard";
 import ContactGrid from "../components/contact/ContactGrid";
+import CvDownload from "../components/CvDownload";
 import Reveal from "../components/Reveal";
 import usePageMeta from "../hooks/usePageMeta";
-import { about, projects, profile, CV_URL } from "../data/portfolio";
-
-const featured = projects.slice(0, 3);
+import { useLang } from "../i18n/LanguageContext";
 
 export default function Home() {
+  const { about, profile, projects, t } = useLang();
+  const featured = projects.slice(0, 3);
+
   usePageMeta(
     undefined,
-    `${profile.name} — Full-Stack & Mobile Engineer from ${profile.location}. Building modern web applications, mobile apps and database-driven solutions with Laravel, Flutter and React.`
+    t.meta.homeDescription(profile.name, profile.city),
+    t.meta.defaultTitle
   );
 
   return (
@@ -26,17 +29,13 @@ export default function Home() {
         <div className="container">
           <div className="about-grid">
             <Reveal className="prose">
-              <span className="eyebrow">About me</span>
-              <h2 className="section-title">A developer who ships real products</h2>
-              <p className="lead mt-2">
-                {about.lead}
-              </p>
-              <p className="lead mt-2">
-                {about.paragraphs[1]}
-              </p>
+              <span className="eyebrow">{t.home.aboutEyebrow}</span>
+              <h2 className="section-title">{t.home.aboutTitle}</h2>
+              <p className="lead mt-2">{about.lead}</p>
+              <p className="lead mt-2">{about.paragraphs[1]}</p>
               <div className="btn-row mt-3">
                 <Link className="btn btn--ghost" to="/about">
-                  Read the full story
+                  {t.home.readFullStory}
                   <FiArrowRight aria-hidden="true" />
                 </Link>
               </div>
@@ -44,13 +43,11 @@ export default function Home() {
 
             <Reveal delay={80} as="div">
               <div className="quote-card">
-                <p className="quote-card__label">Languages</p>
-                <p className="quote-card__text">
-                  Proficient in JavaScript, PHP, Java, C++ and SQL.
-                </p>
+                <p className="quote-card__label">{t.home.languagesLabel}</p>
+                <p className="quote-card__text">{t.home.languagesText}</p>
               </div>
               <div className="quote-card">
-                <p className="quote-card__label">Interests</p>
+                <p className="quote-card__label">{t.home.interestsLabel}</p>
                 <ul className="chip-row mt-2">
                   {about.interests.map((interest) => (
                     <li key={interest} className="chip">
@@ -60,9 +57,9 @@ export default function Home() {
                 </ul>
               </div>
               <div className="quote-card">
-                <p className="quote-card__label">Role</p>
+                <p className="quote-card__label">{t.home.roleLabel}</p>
                 <p className="quote-card__text">
-                  {profile.roles[0]}, based in {profile.city}.
+                  {t.home.roleText(profile.roles[0], profile.city)}
                 </p>
               </div>
             </Reveal>
@@ -73,14 +70,19 @@ export default function Home() {
       <section className="section" id="skills" aria-labelledby="skills-title">
         <div className="container">
           <SectionHead
-            eyebrow="Skillset"
+            eyebrow={t.home.skillsEyebrow}
             id="skills-title"
             title={
-              <>
-                Technologies I build <span className="grad-text">with</span>
-              </>
+              t.home.skillsTitleAccent ? (
+                <>
+                  {t.home.skillsTitleBefore}{" "}
+                  <span className="grad-text">{t.home.skillsTitleAccent}</span>
+                </>
+              ) : (
+                t.home.skillsTitleBefore
+              )
             }
-            sub="A pragmatic stack across frontend, backend, mobile, data and tooling — used on real client and academic projects."
+            sub={t.home.skillsSub}
           />
           <Skills />
         </div>
@@ -90,13 +92,13 @@ export default function Home() {
         <div className="container">
           <SectionHead
             split
-            eyebrow="Selected work"
+            eyebrow={t.home.projectsEyebrow}
             id="projects-title"
-            title="Recent projects"
-            sub="A few things I have designed, built and shipped — from Spring Boot CRUD apps to PHP storefronts and Android utilities."
+            title={t.home.projectsTitle}
+            sub={t.home.projectsSub}
             action={
               <Link className="btn btn--ghost" to="/projects">
-                All projects
+                {t.home.allProjects}
                 <FiArrowRight aria-hidden="true" />
               </Link>
             }
@@ -118,22 +120,15 @@ export default function Home() {
       <section className="section section--tight" id="contact">
         <div className="container">
           <Reveal className="cta-band">
-            <span className="eyebrow">Contact</span>
-            <h2 className="cta-band__title">
-              Let&apos;s build something together
-            </h2>
-            <p className="cta-band__text">
-              Based in {profile.city}. The fastest way to reach me is WhatsApp or
-              LinkedIn.
-            </p>
+            <span className="eyebrow">{t.home.contactEyebrow}</span>
+            <h2 className="cta-band__title">{t.home.contactTitle}</h2>
+            <p className="cta-band__text">{t.home.contactText(profile.city)}</p>
             <div className="cta-band__actions">
               <Link className="btn btn--primary" to="/contact">
-                Contact me
+                {t.home.contactCta}
                 <FiArrowRight aria-hidden="true" />
               </Link>
-              <a className="btn btn--ghost" href={CV_URL} download>
-                Résumé
-              </a>
+              <CvDownload className="btn--ghost" />
             </div>
 
             <div className="mt-4">

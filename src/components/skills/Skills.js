@@ -1,8 +1,10 @@
 import React from "react";
 import Reveal from "../Reveal";
-import { skills } from "../../data/portfolio";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function Skills() {
+  const { skills } = useLang();
+
   return (
     <ul className="skill-grid">
       {skills.map((group, index) => {

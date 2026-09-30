@@ -1,39 +1,42 @@
 import React from "react";
-import { FiDownload, FiExternalLink } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
+import CvDownload from "../components/CvDownload";
 import Reveal from "../components/Reveal";
 import usePageMeta from "../hooks/usePageMeta";
-import { profile, CV_URL } from "../data/portfolio";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function Resume() {
+  const { cv, lang, profile, t } = useLang();
+
   usePageMeta(
-    "Resume",
-    `Résumé of ${profile.name} — ${profile.roles[0].toLowerCase()} based in ${profile.city}. Download the PDF or read it online.`
+    t.resumePage.title,
+    t.meta.resumeDescription(profile.name, profile.metaRole, profile.city),
+    t.meta.defaultTitle
   );
+
+  const pdfLabel =
+    lang === "fr" ? t.cv.frenchLabel : t.cv.englishLabel;
 
   return (
     <>
       <section className="page-head">
         <div className="container">
           <Reveal>
-            <span className="eyebrow">Résumé</span>
-            <h1 className="page-head__title">Curriculum vitae</h1>
+            <span className="eyebrow">{t.resumePage.eyebrow}</span>
+            <h1 className="page-head__title">{t.resumePage.heading}</h1>
             <p className="page-head__sub">
-              Education, professional experience and technical skills in one
-              document — {profile.name}, {profile.roles[0].toLowerCase()}.
+              {t.resumePage.sub(profile.name, profile.metaRole)}
             </p>
             <div className="resume-actions mt-4">
-              <a className="btn btn--primary" href={CV_URL} download>
-                <FiDownload aria-hidden="true" />
-                Download CV
-              </a>
+              <CvDownload className="btn--primary" />
               <a
                 className="btn btn--ghost"
-                href={CV_URL}
+                href={cv.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FiExternalLink aria-hidden="true" />
-                Open in new tab
+                {t.cv.openNewTab}
               </a>
             </div>
           </Reveal>
@@ -42,24 +45,22 @@ export default function Resume() {
 
       <section className="section">
         <div className="container container--narrow">
-          <Reveal className="resume-frame">
+          <Reveal className="resume-frame" key={cv.url}>
             <object
-              data={`${CV_URL}#view=FitH`}
+              data={`${cv.url}#view=FitH`}
               type="application/pdf"
-              aria-label={`Résumé of ${profile.name} (PDF)`}
+              aria-label={`${pdfLabel} — ${profile.name} (PDF)`}
             >
               <p className="resume-note">
-                Your browser can&apos;t display the PDF inline.{" "}
-                <a className="grad-text" href={CV_URL}>
-                  Download the CV instead
+                {t.resumePage.fallback}{" "}
+                <a className="grad-text" href={cv.url}>
+                  {t.resumePage.fallbackLink}
                 </a>
                 .
               </p>
             </object>
           </Reveal>
-          <p className="resume-note">
-            If the preview does not load, use the download button above.
-          </p>
+          <p className="resume-note">{t.resumePage.fallbackHint}</p>
         </div>
       </section>
     </>

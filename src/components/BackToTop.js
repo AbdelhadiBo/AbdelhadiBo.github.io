@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 640);
@@ -23,7 +25,7 @@ export default function BackToTop() {
             : "smooth",
         })
       }
-      aria-label="Back to top"
+      aria-label={t.ui.backToTop}
       tabIndex={visible ? 0 : -1}
     >
       <FiArrowUp aria-hidden="true" />

@@ -3,12 +3,16 @@ import SectionHead from "../components/SectionHead";
 import ProjectCard from "../components/Projects/ProjectCard";
 import Reveal from "../components/Reveal";
 import usePageMeta from "../hooks/usePageMeta";
-import { projects, socials, profile } from "../data/portfolio";
+import { socials } from "../data/portfolio";
+import { useLang } from "../i18n/LanguageContext";
 
 export default function Projects() {
+  const { profile, projects, t } = useLang();
+
   usePageMeta(
-    "Projects",
-    `Projects by ${profile.name} — CRUD web apps, e-commerce platforms and Android utilities built with Spring Boot, PHP, Java and JavaScript.`
+    t.projectsPage.title,
+    t.meta.projectsDescription(profile.name),
+    t.meta.defaultTitle
   );
 
   return (
@@ -16,15 +20,12 @@ export default function Projects() {
       <section className="page-head">
         <div className="container">
           <Reveal>
-            <span className="eyebrow">Portfolio</span>
+            <span className="eyebrow">{t.projectsPage.eyebrow}</span>
             <h1 className="page-head__title">
-              My recent <span className="grad-text">works</span>
+              {t.projectsPage.titleBefore}{" "}
+              <span className="grad-text">{t.projectsPage.titleAccent}</span>
             </h1>
-            <p className="page-head__sub">
-              {projects.length} projects across Java, PHP and JavaScript — from
-              Spring Boot CRUD systems to e-commerce storefronts and Android
-              apps. Every one of them lives on GitHub.
-            </p>
+            <p className="page-head__sub">{t.projectsPage.sub(projects.length)}</p>
             <div className="btn-row mt-3">
               <a
                 className="btn btn--ghost"
@@ -32,7 +33,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                See everything on GitHub
+                {t.projectsPage.githubCta}
               </a>
             </div>
           </Reveal>
@@ -43,10 +44,10 @@ export default function Projects() {
         <div className="container">
           <SectionHead
             center
-            eyebrow="All work"
+            eyebrow={t.projectsPage.sectionEyebrow}
             id="work-title"
-            title="Built with care"
-            sub="Each card links straight to the repository — code, README and setup instructions included."
+            title={t.projectsPage.sectionTitle}
+            sub={t.projectsPage.sectionSub}
           />
 
           <ul className="pcard__grid">

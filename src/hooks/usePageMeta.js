@@ -1,16 +1,13 @@
 import { useEffect } from "react";
+import { profile } from "../data/portfolio";
 
-const SITE_NAME = "Abdelhadi Bouzani";
-
-export default function usePageMeta(title, description) {
+export default function usePageMeta(title, description, defaultTitle) {
   useEffect(() => {
-    document.title = title
-      ? `${title} — ${SITE_NAME}`
-      : `${SITE_NAME} | Full-Stack & Mobile Engineer`;
+    document.title = title ? `${title} — ${profile.name}` : defaultTitle;
 
     if (!description) return;
 
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", description);
-  }, [title, description]);
+  }, [title, description, defaultTitle]);
 }

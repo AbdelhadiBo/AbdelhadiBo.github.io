@@ -1,9 +1,11 @@
 import React from "react";
 import { MdLocationOn, MdSchool } from "react-icons/md";
 import Reveal from "../Reveal";
-import { education } from "../../data/portfolio";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function EducationTimeline() {
+  const { education } = useLang();
+
   return (
     <div className="timeline">
       {education.map((item, index) => (
@@ -32,7 +34,7 @@ export default function EducationTimeline() {
                 {item.location}
               </span>
               {item.current ? (
-                <span className="chip chip--success">In progress</span>
+                <span className="chip chip--success">{item.inProgress}</span>
               ) : null}
             </div>
 
