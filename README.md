@@ -58,24 +58,6 @@ This portfolio presents my:
 * 🎨 Modern animations and interactions
 * 📱 Mobile-friendly navigation
 
-## 📂 Projects
-
-Some of the projects presented on my portfolio include:
-
-### 🛒 E-Commerce Platform
-
-Full-stack e-commerce application built with React, Laravel and MySQL.
-
-### 📰 Article Management
-
-Web application developed with Spring Boot and Thymeleaf for managing articles.
-
-### 📱 Quiz App
-
-Android quiz application developed with Java.
-
-More projects and details are available on my portfolio.
-
 ## 📬 Contact
 
 Feel free to contact me for professional opportunities, collaborations or projects.
@@ -127,6 +109,3 @@ The portfolio is deployed using **GitHub Pages**.
 
 ---
 
-### 👋 Thanks for visiting!
-
-If you are interested in working together, feel free to get in touch.
