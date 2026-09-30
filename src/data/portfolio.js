@@ -195,12 +195,6 @@ export const projects = [
     tags: ["PHP", "Web"],
     href: "https://github.com/AbdelhadiBo/boutique",
   },
-  {
-    id: "clinic-management-system",
-    title: "Clinique Management System",
-    tags: ["Management System", "Web"],
-    href: "https://github.com/AbdelhadiBo/clinic-management-system",
-  },
 ];
 
 export const experience = [
