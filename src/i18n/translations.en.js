@@ -26,8 +26,8 @@ const en = {
     backToTop: "Back to top",
     navigate: "Navigate",
     footerNavigation: "Footer",
-    roleTagline: "Full-Stack & Mobile Engineer",
-    photoAlt: "full-stack and mobile engineer",
+    roleTagline: "Full-Stack & Mobile Developer",
+    photoAlt: "full-stack and mobile developer",
     basedIn: (location) => `Based in ${location}`,
   },
 
@@ -40,7 +40,7 @@ const en = {
 
   profile: {
     roles: [
-      "Full-Stack & Mobile Engineer",
+      "Full-Stack & Mobile Developer",
       "Software Developer",
       "Full Stack Developer",
       "Freelancer",
@@ -48,7 +48,7 @@ const en = {
     headline:
       "I build modern, practical and user-friendly digital solutions — from database-driven web apps to cross-platform mobile and desktop software.",
     city: "Morocco",
-    metaRole: "full-stack and mobile engineer",
+    metaRole: "full-stack and mobile developer",
     facts: [
       { label: "Based in", value: "Morocco" },
       { label: "Focus", value: "Architecture & APIs" },
@@ -62,7 +62,7 @@ const en = {
       "Hello! I'm Abdelhadi Bouzani from Morocco — a passionate Software Developer who enjoys building modern, practical and user-friendly digital solutions, with a strong interest in web and application development.",
     paragraphs: [
       "I'm a Software Engineering student passionate about building modern, efficient and user-friendly web applications. I enjoy turning ideas into real-world digital solutions, solving technical problems and learning through real-world challenges.",
-      "I hold a diploma as a Specialized Technician in Digital Development, and I am currently pursuing my studies in Computer Engineering. I have hands-on experience through academic projects and a professional internship where I worked on real-world applications.",
+      "I hold a Specialized Technician Diploma in Digital Development and a DCA (Advanced Studies Diploma) in Computer Engineering from ENSA Tanger. I am currently in my 4th year of the Computer Engineering cycle at ENSI Tanger. I have hands-on experience through academic projects and professional internships on real-world applications.",
       "I'm proficient in JavaScript, PHP, Java, C++ and SQL — and I enjoy working on both frontend and backend development. My main interests include developing web applications, CRUD systems and database-driven solutions, with a focus on clean design and performance.",
       "Whenever possible, I love building projects with Vue.js, Laravel and Java (JSP / Servlets) to create scalable and maintainable applications.",
       "Outside of coding, I enjoy going to the gym, taking on new challenges, and continuously working on both my professional and personal growth.",
@@ -143,11 +143,11 @@ const en = {
       inProgress: "In progress",
     },
     "ensa-tanger": {
-      title: "3rd Year DCA — Computer Engineering",
+      title: "DCA — Computer Engineering",
       duration: "2024 – 2025",
       location: "Morocco",
       description:
-        "DCA (Advanced Studies Diploma) in Computer Engineering, with a strong scientific foundation in mathematics, algorithms, and computer science.",
+        "DCA (Advanced Studies Diploma) in Computer Engineering from ENSA Tanger, focused on software development, information technologies, databases and networking.",
       inProgress: "In progress",
     },
     "istag-meknes": {
@@ -169,9 +169,9 @@ const en = {
   },
 
   meta: {
-    defaultTitle: "Abdelhadi Bouzani | Full-Stack & Mobile Engineer",
+    defaultTitle: "Abdelhadi Bouzani | Full-Stack & Mobile Developer",
     homeDescription: (name, city) =>
-      `${name} — Full-Stack & Mobile Engineer from ${city}. Building modern web applications, mobile apps and database-driven solutions with Laravel, Flutter and React.`,
+      `${name} — Full-Stack & Mobile Developer from ${city}. Building modern web applications, mobile apps and database-driven solutions with Laravel, Flutter and React.`,
     aboutDescription: (name) =>
       `About ${name} — software developer from Morocco focused on web applications, CRUD systems and database-driven solutions with Laravel, PHP, Java and JavaScript.`,
     projectsDescription: (name) =>
@@ -312,11 +312,10 @@ const en = {
 
   footer: {
     text:
-      "Full-stack & mobile engineer building modern, practical and user-friendly digital solutions — web applications, CRUD systems and database-driven products.",
+      "Full-stack & mobile developer building modern, practical and user-friendly digital solutions — web applications, CRUD systems and database-driven products.",
     navigate: "Navigate",
     findMeOnline: "Find me online",
     rights: (year, name) => `© ${year} ${name}. All rights reserved.`,
-    credit: (city) => `Designed & built with React — Based in ${city}`,
   },
 };
 

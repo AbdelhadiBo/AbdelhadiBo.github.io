@@ -26,8 +26,8 @@ const fr = {
     backToTop: "Retour en haut",
     navigate: "Naviguer",
     footerNavigation: "Pied de page",
-    roleTagline: "Ingénieur Full-Stack & Mobile",
-    photoAlt: "ingénieur full-stack et mobile",
+    roleTagline: "Développeur Full-Stack & Mobile",
+    photoAlt: "développeur full-stack et mobile",
     basedIn: (location) => `Basé au ${location}`,
   },
 
@@ -40,7 +40,7 @@ const fr = {
 
   profile: {
     roles: [
-      "Ingénieur Full-Stack & Mobile",
+      "Développeur Full-Stack & Mobile",
       "Développeur Software",
       "Développeur Full Stack",
       "Freelance",
@@ -48,7 +48,7 @@ const fr = {
     headline:
       "Je conçois des solutions numériques modernes, pratiques et ergonomiques — des applications web pilotées par des bases de données jusqu'aux logiciels mobiles et desktop multiplateformes.",
     city: "Maroc",
-    metaRole: "ingénieur full-stack et mobile",
+    metaRole: "développeur full-stack et mobile",
     facts: [
       { label: "Basé au", value: "Maroc" },
       { label: "Domaine", value: "Architecture & APIs" },
@@ -62,7 +62,7 @@ const fr = {
       "Bonjour ! Je suis Abdelhadi Bouzani, originaire du Maroc — un développeur software passionné par la création de solutions numériques modernes, pratiques et ergonomiques, avec un vif intérêt pour le web et le développement d'applications.",
     paragraphs: [
       "Étudiant en génie logiciel, je suis passionné par la création d'applications web modernes, performantes et ergonomiques. J'aime transformer des idées en solutions numériques concrètes, résoudre des problèmes techniques et apprendre à travers des défis réels.",
-      "Je suis titulaire d'un diplôme de Technicien Spécialisé en Développement Digital et je poursuis actuellement mes études en Génie Informatique. Je dispose d'une expérience pratique à travers des projets académiques et un stage professionnel au cours duquel j'ai travaillé sur des applications réelles.",
+      "Je suis titulaire d'un diplôme de Technicien Spécialisé en Développement Digital et d'un DCA en Génie Informatique obtenu à l'ENSA Tanger. Je poursuis actuellement ma 4ème année du Cycle Ingénieur en Génie Informatique à l'ENSI Tanger. Je dispose d'une expérience pratique à travers des projets académiques et des stages professionnels sur des applications réelles.",
       "Je maîtrise JavaScript, PHP, Java, C++ et SQL — et j'aime autant travailler sur le front-end que sur le back-end. Mes principaux centres d'intérêt sont le développement d'applications web, les systèmes CRUD et les solutions basées sur des bases de données, avec une attention particulière portée à la qualité du design et aux performances.",
       "Chaque fois que c'est possible, j'aime construire des projets avec Vue.js, Laravel et Java (JSP / Servlets) afin de créer des applications évolutives et maintenables.",
       "En dehors du code, j'aime m'entraîner en salle de sport, relever de nouveaux défis et travailler continuellement à mon développement professionnel et personnel.",
@@ -143,11 +143,11 @@ const fr = {
       inProgress: "En cours",
     },
     "ensa-tanger": {
-      title: "3ème année DCA — Génie Informatique",
+      title: "DCA — Génie Informatique",
       duration: "2024 – 2025",
       location: "Maroc",
       description:
-        "DCA (Diplôme d'Études Avancées) en Génie Informatique, avec une solide base scientifique en mathématiques, algorithmes et informatique.",
+        "DCA (Diplôme d'Études Avancées) en Génie Informatique à l'ENSA Tanger, axé sur le développement logiciel, les technologies de l'information, les bases de données et les réseaux.",
       inProgress: "En cours",
     },
     "istag-meknes": {
@@ -169,9 +169,9 @@ const fr = {
   },
 
   meta: {
-    defaultTitle: "Abdelhadi Bouzani | Ingénieur Full-Stack & Mobile",
+    defaultTitle: "Abdelhadi Bouzani | Développeur Full-Stack & Mobile",
     homeDescription: (name, city) =>
-      `${name} — Ingénieur Full-Stack & Mobile depuis ${city}. Développement d'applications web modernes, d'applications mobiles et de solutions basées sur des bases de données avec Laravel, Flutter et React.`,
+      `${name} — Développeur Full-Stack & Mobile depuis ${city}. Développement d'applications web modernes, d'applications mobiles et de solutions basées sur des bases de données avec Laravel, Flutter et React.`,
     aboutDescription: (name) =>
       `À propos de ${name} — développeur software marocain spécialisé dans les applications web, les systèmes CRUD et les solutions basées sur des bases de données avec Laravel, PHP, Java et JavaScript.`,
     projectsDescription: (name) =>
@@ -312,11 +312,10 @@ const fr = {
 
   footer: {
     text:
-      "Ingénieur full-stack et mobile qui conçoit des solutions numériques modernes, pratiques et ergonomiques — applications web, systèmes CRUD et produits fondés sur des bases de données.",
+      "Développeur full-stack et mobile qui conçoit des solutions numériques modernes, pratiques et ergonomiques — applications web, systèmes CRUD et produits fondés sur des bases de données.",
     navigate: "Naviguer",
     findMeOnline: "Retrouvez-moi en ligne",
     rights: (year, name) => `© ${year} ${name}. Tous droits réservés.`,
-    credit: (city) => `Conçu & développé avec React — Basé au ${city}`,
   },
 };
 

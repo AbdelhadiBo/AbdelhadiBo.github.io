@@ -57,7 +57,6 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>{t.footer.rights(year, profile.name)}</span>
-          <span>{t.footer.credit(profile.city)}</span>
         </div>
       </div>
     </footer>
